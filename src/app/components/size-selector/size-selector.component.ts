@@ -11,7 +11,7 @@ export class SizeSelectorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  changeSize(size: string) {
-    this._size.changeSize(size);
+  changeSize(event: any) {
+    this._size.changeSize(event.target.value);
   }
 }

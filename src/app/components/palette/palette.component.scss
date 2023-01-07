@@ -12,3 +12,8 @@
     cursor: pointer;
   }
 }
+
+.selected {
+  scale: 1.2;
+  border: 2px solid black;
+}

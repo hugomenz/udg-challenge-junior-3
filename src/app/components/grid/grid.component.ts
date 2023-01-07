@@ -23,10 +23,12 @@ export class GridComponent implements OnInit {
   getBoxSize(size: number) {
     if (size === 8) {
       return 2;
+    } else if (size === 12) {
+      return 1.7;
     } else if (size === 16) {
       return 1.5;
     } else if (size === 32) {
-      return 1;
+      return 0.9;
     } else {
       return 2;
     }
@@ -51,4 +53,6 @@ export class GridComponent implements OnInit {
 
     console.log(this.cellInformation);
   }
+
+  downloadImage() {}
 }

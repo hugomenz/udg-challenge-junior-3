@@ -7,7 +7,10 @@ import { ColorService } from 'src/app/services/color.service';
   styleUrls: ['./palette.component.scss'],
 })
 export class PaletteComponent implements OnInit {
-  colorList = [
+  selectedClass: string = 'selected';
+  selected!: boolean;
+
+  colorList: string[] = [
     'red',
     'orange',
     'yellow',
@@ -21,12 +24,13 @@ export class PaletteComponent implements OnInit {
     'brown',
   ];
 
-  constructor(private _colorService: ColorService) {}
+  constructor(public colorService: ColorService) {}
 
   ngOnInit(): void {}
 
   updateSelectedColor(event: any) {
     console.log(event.target.id);
-    this._colorService.setColor(event.target.id);
+    this.selected = !this.selected;
+    this.colorService.setColor(event.target.id);
   }
 }

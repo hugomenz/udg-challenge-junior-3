@@ -3,12 +3,14 @@
     type="radio"
     name="size"
     value="8"
-    (change)="changeSize('8')"
+    (change)="changeSize($event)"
     checked
   />
   <label for="8">8x8</label><br />
-  <input type="radio" name="size" (change)="changeSize('16')" value="16" />
+  <input type="radio" name="size" (change)="changeSize($event)" value="12" />
+  <label for="12">12x12</label><br />
+  <input type="radio" name="size" (change)="changeSize($event)" value="16" />
   <label for="16">16x16</label><br />
-  <input type="radio" name="size" (change)="changeSize('32')" value="32" />
+  <input type="radio" name="size" (change)="changeSize($event)" value="32" />
   <label for="32">32x32</label><br />
 </div>

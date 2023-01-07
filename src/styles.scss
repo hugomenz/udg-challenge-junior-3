@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+body {
+  border: 1px solid red;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.spc-ar {
+  justify-content: space-around;
+}

@@ -1,0 +1,14 @@
+<div class="container flex">
+  <input
+    type="radio"
+    name="size"
+    value="8"
+    (change)="changeSize('8')"
+    checked
+  />
+  <label for="8">8x8</label><br />
+  <input type="radio" name="size" (change)="changeSize('16')" value="16" />
+  <label for="16">16x16</label><br />
+  <input type="radio" name="size" (change)="changeSize('32')" value="32" />
+  <label for="32">32x32</label><br />
+</div>

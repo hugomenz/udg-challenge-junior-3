@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorService } from 'src/app/services/color.service';
 import { SizeService } from 'src/app/services/size.service';
 
 @Component({
@@ -9,8 +10,9 @@ import { SizeService } from 'src/app/services/size.service';
 export class GridComponent implements OnInit {
   inputNumber: number = 8;
   numberArray: number[] = [];
+  selectedColor: string = 'white';
 
-  constructor(private _size: SizeService) {}
+  constructor(private _size: SizeService, private _color: ColorService) {}
 
   ngOnInit() {
     this.updateArray();
@@ -22,5 +24,9 @@ export class GridComponent implements OnInit {
       console.log(this.inputNumber);
       this.numberArray = Array(this.inputNumber ** 2).fill(null);
     });
+  }
+
+  updateColor() {
+    this._color.getColor().subscribe((color) => (this.selectedColor = color));
   }
 }

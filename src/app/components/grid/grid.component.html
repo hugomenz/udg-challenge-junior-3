@@ -6,6 +6,11 @@
       'grid-template-rows': 'repeat(' + inputNumber + ', 2rem)'
     }"
   >
-    <div *ngFor="let number of numberArray" class="cell"></div>
+    <div
+      *ngFor="let number of numberArray"
+      class="cell"
+      [ngStyle]="{ 'background-color': selectedColor }"
+      (click)="updateColor()"
+    ></div>
   </div>
 </div>

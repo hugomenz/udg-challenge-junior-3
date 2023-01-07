@@ -1,13 +1,9 @@
 <div class="box">
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
-  <div class="color-box"></div>
+  <div
+    *ngFor="let color of colorList"
+    class="color-box"
+    id="{{ color }}"
+    [ngStyle]="{ 'background-color': color }"
+    (click)="updateSelectedColor($event)"
+  ></div>
 </div>

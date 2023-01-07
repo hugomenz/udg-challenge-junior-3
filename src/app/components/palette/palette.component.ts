@@ -26,6 +26,7 @@ export class PaletteComponent implements OnInit {
   ngOnInit(): void {}
 
   updateSelectedColor(event: any) {
+    console.log(event.target.id);
     this._colorService.setColor(event.target.id);
   }
 }

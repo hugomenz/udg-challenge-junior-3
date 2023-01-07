@@ -2,15 +2,18 @@
   <div
     class="container"
     [ngStyle]="{
-      'grid-template-columns': 'repeat(' + inputNumber + ', 2rem)',
-      'grid-template-rows': 'repeat(' + inputNumber + ', 2rem)'
+      'grid-template-columns':
+        'repeat(' + selectedSize + ', ' + getBoxSize(selectedSize) + 'rem)',
+      'grid-template-rows':
+        'repeat(' + selectedSize + ', ' + getBoxSize(selectedSize) + 'rem)'
     }"
   >
     <div
-      *ngFor="let number of numberArray"
+      *ngFor="let info of cellInformation"
       class="cell"
-      [ngStyle]="{ 'background-color': selectedColor }"
-      (click)="updateColor()"
+      id="{{ info.id }}"
+      [ngStyle]="{ 'background-color': info.color }"
+      (click)="changeCellColor($event)"
     ></div>
   </div>
 </div>

@@ -6,7 +6,15 @@ body {
 }
 
 body {
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    124deg,
+    rgba(208, 27, 108, 1) 0%,
+    rgba(243, 130, 32, 1) 14%,
+    rgba(83, 44, 124, 1) 100%
+  );
 }
 
 .flex {

@@ -1,5 +1,12 @@
 .app {
   padding: 1rem;
-  align-items: center;
+
   justify-content: center;
+  align-items: center;
+  min-width: 50vw;
+  max-width: 60vw;
+  border: 3px solid #aaa;
+  border-radius: 1rem;
+  background-color: #ccc;
+  box-shadow: 0 1rem 2rem 0 rgba(225, 23, 23, 0.493);
 }

@@ -2,6 +2,10 @@
 
 ![plot](./src/assets/pixel.jpg)
 
+## 0. Demo
+
+[Pixel Art Demo using GitHub pages](https://hugomenz.github.io/udg-challenge-junior-3/)
+
 ## 1. Zielsetzung
 
 Das Ziel ist die Implementierung einer Anwendung zur Erstellung von Pixel Arts. Die Aufgabe wird in folgendende Teil-Aufgaben/Funktionen gegliedert.

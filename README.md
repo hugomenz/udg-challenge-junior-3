@@ -5,7 +5,7 @@
 A demo of the app can be found at [DEMO: Pixel Art App](https://hugomenz.github.io/udg-challenge-junior-3/).
 
 <p align="center">
-  <img src="./src/assets/pixel-art-shoot.JPG" width="300"/>
+  <img src="./src/assets/pixel-art-shoot.JPG" width="400"/>
 </p>
 
 Welcome to the Pixel Art App! This app allows users to create pixel art designs by choosing colors from a palette and clicking on individual pixels to color them in. The app includes a range of grid sizes to choose from, including 8x8, 12x12, 16x16, and 32x32.

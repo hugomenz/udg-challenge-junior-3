@@ -17,7 +17,12 @@ export class GridComponent implements OnInit {
 
   cellInformation: Cell[] = [] as Cell[];
 
+  //------
+  // TODO: the grid could be a BehaviourSubject
+  //       and we subscribe to the data
+  //
   //public cellInformation$ = new BehaviorSubject<Cell[]>([]);
+  //------
 
   constructor(
     public _size: SizeService,
@@ -27,6 +32,11 @@ export class GridComponent implements OnInit {
 
   ngOnInit() {
     this.updateGridSize();
+
+    //------
+    // TODO: we could subscribe to the data stream to get the grid state
+    //
+    //-----
   }
 
   getBoxSize(size: number) {
@@ -49,12 +59,18 @@ export class GridComponent implements OnInit {
       this.cellInformation = Array(this.selectedSize ** 2)
         .fill(null)
         .map((_, index) => ({ id: index, color: this.selectedColor }));
+
+      //------
+      // TODO: the grid could be a BehaviourSubject
+      //       and we subscribe to the data
+      //       we should update the sellInformation$
+      //
       //this.cellInformation$.next(this.cellInformation);
+      //------
     });
   }
 
   changeCellColor(event: any) {
-    console.log(event.target.id);
     this.cellInformation.map((cell) => {
       if (cell.id === parseInt(event.target.id)) {
         cell.color = this._color.selectedColor;
@@ -63,32 +79,21 @@ export class GridComponent implements OnInit {
   }
 
   fillAdjacentCells(event: any) {
-    console.log(this.cellInformation);
-
-    // get the id of the clicked cell
     const clickedId = parseInt(event.target.id);
 
-    console.log(clickedId);
+    const queue = [clickedId]; // create a queue to store the cells that need to be processed
+    const processed = new Set(); // create a set to store the processed cells
 
     // find the selected cell in the cellInformation array
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.selectedCell = this.cellInformation.find(
       (cell) => cell.id === clickedId
     )!;
 
-    console.log(`Celda seleccionada: ${this.selectedCell}`);
     // get the color of the selected cell
     this.selectedColor = this.selectedCell.color;
 
-    // create a queue to store the cells that need to be processed
-    const queue = [clickedId];
-
-    // create a set to store the processed cells
-    const processed = new Set();
-
     while (queue.length > 0) {
       // get the id of the next cell to be processed
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const currentId = queue.shift()!;
 
       // check if the cell has already been processed
@@ -99,21 +104,26 @@ export class GridComponent implements OnInit {
       // mark the cell as processed
       processed.add(currentId);
 
-      // get the current cell from the cellInformation array
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const currentCell = this.cellInformation.find(
         (cell) => cell.id === currentId
-      )!;
+      );
 
-      // check if the current cell has the same color as the selected cell
+      if (!currentCell) {
+        continue;
+      }
+
+      // check if the NEXT cell has the same color as the CURRENT cell
       if (currentCell.color === this.selectedColor) {
-        // update the color of the current cell
+        // fill!
         currentCell.color = this._color.selectedColor;
+
+        //------
+        // TODO: The grid borders should be managed in a better way
+        //       Maybe adding if conditions to the queue
+        //------
 
         // add the adjacent cells to the queue
         queue.push(currentId + 1);
-
-        // assuming the cells are in a sequential grid-like structure
         queue.push(currentId - 1);
         queue.push(currentId + this.selectedSize);
         queue.push(currentId - this.selectedSize);

@@ -24,13 +24,12 @@ export class PaletteComponent implements OnInit {
     'brown',
   ];
 
-  constructor(public colorService: ColorService) {}
+  constructor(public _color: ColorService) {}
 
   ngOnInit(): void {}
 
   updateSelectedColor(event: any) {
-    console.log(event.target.id);
     this.selected = !this.selected;
-    this.colorService.setColor(event.target.id);
+    this._color.setColor(event.target.id);
   }
 }

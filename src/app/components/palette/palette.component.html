@@ -5,6 +5,6 @@
     id="{{ color }}"
     [ngStyle]="{ 'background-color': color }"
     (click)="updateSelectedColor($event)"
-    [ngClass]="{ selected: color === this.colorService.selectedColor }"
+    [ngClass]="{ selected: color === this._color.selectedColor }"
   ></div>
 </div>

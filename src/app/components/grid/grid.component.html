@@ -13,7 +13,11 @@
       class="cell"
       id="{{ info.id }}"
       [ngStyle]="{ 'background-color': info.color }"
-      (click)="changeCellColor($event)"
+      (click)="
+        this._bucket.isBucketActive
+          ? fillAdjacentCells($event)
+          : changeCellColor($event)
+      "
     ></div>
   </div>
   <canvas id="canvas"></canvas>

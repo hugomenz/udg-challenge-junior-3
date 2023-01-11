@@ -96,21 +96,17 @@ export class GridComponent implements OnInit {
       // get the id of the next cell to be processed
       const currentId = queue.shift()!;
 
+      const currentCell = this.cellInformation.find(
+        (cell) => cell.id === currentId
+      );
+
       // check if the cell has already been processed
-      if (processed.has(currentId)) {
+      if (processed.has(currentId) || !currentCell) {
         continue;
       }
 
       // mark the cell as processed
       processed.add(currentId);
-
-      const currentCell = this.cellInformation.find(
-        (cell) => cell.id === currentId
-      );
-
-      if (!currentCell) {
-        continue;
-      }
 
       // check if the NEXT cell has the same color as the CURRENT cell
       if (currentCell.color === this.selectedColor) {
@@ -133,5 +129,9 @@ export class GridComponent implements OnInit {
     console.log(this.cellInformation);
   }
 
+  //------
+  // TODO: Canva not implemented yet
+  //
+  //------
   downloadImage() {}
 }

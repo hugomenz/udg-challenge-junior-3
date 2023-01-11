@@ -1,0 +1,20 @@
+.fill-button {
+  margin: 1rem;
+  background-color: #aaa;
+  border: 1px solid #666;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.selected {
+  scale: 1.2;
+  background-color: #555;
+  border: 2px solid black;
+}
